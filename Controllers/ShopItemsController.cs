@@ -73,14 +73,13 @@ namespace ShopApi.Controllers
         }
 
         // POST: api/ShopItems
-        // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPost]
         public async Task<ActionResult<ShopItem>> PostShopItem(ShopItem shopItem)
         {
             _context.ShopItems.Add(shopItem);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetShopItem", new { id = shopItem.Id }, shopItem);
+            return CreatedAtAction(nameof(GetShopItem), new { id = shopItem.Id }, shopItem);
         }
 
         // DELETE: api/ShopItems/5
